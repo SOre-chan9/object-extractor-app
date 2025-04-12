@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>オブジェクト抽出アプリ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>画像オブジェクト抽出アプリ</h1>
+            <p>画像をアップロードして、含まれる個別のオブジェクトを抽出します。抽出されたオブジェクトは別々のPNG画像としてダウンロードできます。</p>
+        </header>
+
+        <main>
+            <section id="upload-section">
+                <h2>画像アップロード</h2>
+                <div class="background-options">
+                    <h3>背景オプション</h3>
+                    <div class="options-container">
+                        <label>
+                            <input type="radio" name="background" value="transparent" checked> 透明背景
+                        </label>
+                        <label>
+                            <input type="radio" name="background" value="white"> 白背景
+                        </label>
+                        <label>
+                            <input type="radio" name="background" value="custom"> カスタム背景色
+                            <input type="color" id="color-picker" value="#ffffff" disabled>
+                        </label>
+                    </div>
+                </div>
+                
+                <div id="drop-area">
+                    <p>ここに画像をドラッグ＆ドロップ</p>
+                    <p>または</p>
+                    <input type="file" id="file-input" accept="image/*" hidden>
+                    <button id="upload-button">画像をアップロード</button>
+                </div>
+            </section>
+
+            <section id="results-section" class="hidden">
+                <div class="results-header">
+                    <h2>抽出されたオブジェクト (<span id="object-count">0</span>)</h2>
+                    <button id="download-all-button">ZIPでダウンロード</button>
+                </div>
+                <div id="loading" class="hidden">
+                    <div class="spinner"></div>
+                    <p>オブジェクトを抽出中...</p>
+                </div>
+                <div id="objects-container" class="grid-view"></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 オブジェクト抽出アプリ</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
